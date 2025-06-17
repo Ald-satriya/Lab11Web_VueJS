@@ -1,0 +1,182 @@
+/* Layout & Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7f6; /* Warna latar belakang yang lebih lembut */
+    padding: 30px;
+    margin: 0;
+    color: #3f4a56; /* Warna teks yang sedikit lebih gelap untuk kontras */
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Warna heading yang lebih kuat */
+    margin-bottom: 40px;
+    font-size: 2.5em; /* Ukuran heading yang sedikit lebih besar */
+    letter-spacing: 0.5px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate; /* Menggunakan separate untuk border-radius pada sel */
+    border-spacing: 0;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Shadow yang lebih menonjol */
+    border-radius: 12px; /* Sudut yang lebih membulat */
+    overflow: hidden; /* Penting untuk border-radius */
+}
+
+th, td {
+    padding: 16px 20px; /* Padding yang sedikit lebih besar */
+    border-bottom: 1px solid #e9ecef; /* Garis bawah yang lebih terang */
+    text-align: left;
+}
+
+th {
+    background: linear-gradient(to right, #4a90e2, #6a7eff); /* Gradien pada header tabel */
+    color: #ffffff;
+    font-weight: 600; /* Bobot font yang lebih tebal */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa; /* Warna baris genap yang lebih terang */
+}
+
+tr:hover {
+    background-color: #e6f7ff; /* Efek hover untuk baris */
+    transition: background-color 0.3s ease;
+}
+
+.center-text {
+    text-align: center;
+}
+
+td a {
+    margin: 0 8px;
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none; /* Menghilangkan underline default */
+    transition: color 0.3s ease;
+}
+
+td a:hover {
+    color: #0056b3; /* Warna hover yang lebih gelap */
+    text-decoration: underline;
+}
+
+/* Buttons */
+button,
+.btn {
+    padding: 12px 22px; /* Padding yang sedikit lebih besar */
+    border: none;
+    border-radius: 8px; /* Sudut yang lebih membulat */
+    background: linear-gradient(to right, #007bff, #0056b3); /* Gradien pada tombol */
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px; /* Ukuran font yang sedikit lebih besar */
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease; /* Transisi untuk semua properti */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow pada tombol */
+}
+
+button:hover,
+.btn:hover {
+    background: linear-gradient(to right, #0056b3, #004085); /* Gradien hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* Efek mengangkat sedikit */
+}
+
+/* Modal Styling */
+.modal {
+    display: flex; /* Menggunakan flexbox untuk centering yang lebih baik */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* Background overlay yang sedikit lebih gelap */
+    backdrop-filter: blur(5px); /* Efek blur pada latar belakang */
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px; /* Lebar modal yang sedikit lebih besar */
+    border-radius: 12px; /* Sudut yang lebih membulat */
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25); /* Shadow yang lebih kuat */
+    animation: fadeIn 0.3s ease-out; /* Animasi masuk */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 28px; /* Ukuran tombol close yang sedikit lebih besar */
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #555;
+    transform: rotate(90deg); /* Efek putaran pada close button */
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 16px; /* Padding yang sedikit lebih besar */
+    margin-bottom: 18px;
+    border: 1px solid #dcdfe6; /* Warna border yang lebih lembut */
+    border-radius: 8px; /* Sudut yang lebih membulat */
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #4a90e2; /* Warna border fokus yang lebih cerah */
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25); /* Shadow fokus yang lebih menonjol */
+    background-color: #f9fbff; /* Sedikit perubahan warna background saat fokus */
+}
+
+/* Utility */
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}

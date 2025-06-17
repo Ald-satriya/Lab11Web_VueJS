@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manajemen Artikel - VueJS 3</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>📝 Manajemen Artikel</h1>
+      <button id="btn-tambah" @click="tambah">+ Tambah Artikel</button>
+    </header>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Judul</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(row, index) in artikel" :key="row.id">
+          <td class="center">{{ row.id }}</td>
+          <td>{{ row.judul }}</td>
+          <td>{{ statusText(row.status) }}</td>
+          <td class="center">
+            <button class="btn-edit" @click="edit(row)">Edit</button>
+            <button class="btn-delete" @click="hapus(index, row.id)">Hapus</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal Form -->
+    <div class="modal" v-if="showForm">
+      <div class="modal-content">
+        <span class="close" @click="showForm = false">&times;</span>
+        <h2>{{ formTitle }}</h2>
+        <form @submit.prevent="saveData">
+          <input type="text" v-model="formData.judul" placeholder="Judul Artikel" required>
+          <textarea v-model="formData.isi" placeholder="Isi Artikel" rows="6"></textarea>
+          <select v-model="formData.status">
+            <option v-for="option in statusOptions" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+          <div class="actions">
+            <button type="submit" class="btn-primary">Simpan</button>
+            <button type="button" class="btn-secondary" @click="showForm = false">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
